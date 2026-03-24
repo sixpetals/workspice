@@ -1,0 +1,11 @@
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\obj\Debug\net8.0\Workspice.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\obj\Debug\net8.0\Workspice.Domain.AssemblyInfoInputs.cache
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\obj\Debug\net8.0\Workspice.Domain.AssemblyInfo.cs
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\obj\Debug\net8.0\Workspice.Domain.csproj.CoreCompileInputs.cache
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\bin\Debug\net8.0\Workspice.Domain.deps.json
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\bin\Debug\net8.0\Workspice.Domain.dll
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\bin\Debug\net8.0\Workspice.Domain.pdb
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\obj\Debug\net8.0\Workspice.Domain.dll
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\obj\Debug\net8.0\refint\Workspice.Domain.dll
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\obj\Debug\net8.0\Workspice.Domain.pdb
+C:\Users\micro\PrivateProject\workspice\src\Workspice.Domain\obj\Debug\net8.0\ref\Workspice.Domain.dll

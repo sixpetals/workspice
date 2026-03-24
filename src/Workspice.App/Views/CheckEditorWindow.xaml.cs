@@ -22,7 +22,7 @@ public partial class CheckEditorWindow : Window
     {
         if (string.IsNullOrWhiteSpace(CommandTextBox.Text))
         {
-            MessageBox.Show("Command は必須です。");
+            System.Windows.MessageBox.Show("Command は必須です。");
             return;
         }
 
@@ -32,7 +32,7 @@ public partial class CheckEditorWindow : Window
 
         if (exitCodes.Any(static value => value is null))
         {
-            MessageBox.Show("SuccessExitCodes はカンマ区切りの整数で指定してください。");
+            System.Windows.MessageBox.Show("SuccessExitCodes はカンマ区切りの整数で指定してください。");
             return;
         }
 

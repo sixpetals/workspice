@@ -201,13 +201,13 @@ public partial class ProfileEditorWindow : Window
     {
         if (Profiles.Any(profile => string.IsNullOrWhiteSpace(profile.Name)))
         {
-            MessageBox.Show("プロファイル名は必須です。", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
+            System.Windows.MessageBox.Show("プロファイル名は必須です。", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
         if (!int.TryParse(LogRetentionDaysTextBox.Text, out var retentionDays) || retentionDays <= 0)
         {
-            MessageBox.Show("ログ保持日数は 1 以上の整数で指定してください。", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
+            System.Windows.MessageBox.Show("ログ保持日数は 1 以上の整数で指定してください。", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 

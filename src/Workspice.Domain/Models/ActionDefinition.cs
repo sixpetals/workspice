@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Workspice.Domain.Models;
 
-[JsonPolymorphism(TypeDiscriminatorPropertyName = "kind")]
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "kind")]
 [JsonDerivedType(typeof(ApplicationLaunchActionDefinition), "applicationLaunch")]
 [JsonDerivedType(typeof(CommandExecutionActionDefinition), "commandExecution")]
 [JsonDerivedType(typeof(WindowsServiceControlActionDefinition), "windowsServiceControl")]

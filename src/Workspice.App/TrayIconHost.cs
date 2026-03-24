@@ -25,11 +25,11 @@ public sealed class TrayIconHost(
         await RefreshMenuAsync();
     }
 
-    public async Task RefreshMenuAsync()
+    public Task RefreshMenuAsync()
     {
         if (_notifyIcon is null)
         {
-            return;
+            return Task.CompletedTask;
         }
 
         var menu = new ContextMenuStrip();
@@ -66,6 +66,7 @@ public sealed class TrayIconHost(
         menu.Items.Add(exit);
 
         _notifyIcon.ContextMenuStrip = menu;
+        return Task.CompletedTask;
     }
 
     private async Task OpenProfileEditorAsync()

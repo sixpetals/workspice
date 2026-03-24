@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Workspice.Domain.Models;
 
-[JsonPolymorphism(TypeDiscriminatorPropertyName = "kind")]
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "kind")]
 [JsonDerivedType(typeof(ProcessExistsPostCheckDefinition), "processExists")]
 [JsonDerivedType(typeof(CommandCheckPostCheckDefinition), "commandCheck")]
 [JsonDerivedType(typeof(ServiceStatePostCheckDefinition), "serviceState")]

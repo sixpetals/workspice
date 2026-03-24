@@ -14,7 +14,7 @@ public sealed class WpfDialogService : IUserInteractionService
             $"終了時アクション: {currentProfile?.ShutdownActions.Count ?? 0} 件{Environment.NewLine}" +
             $"起動時アクション: {targetProfile.LaunchActions.Count} 件";
 
-        var result = MessageBox.Show(message, "プロファイル切替確認", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+        var result = System.Windows.MessageBox.Show(message, "プロファイル切替確認", MessageBoxButton.OKCancel, MessageBoxImage.Question);
         return Task.FromResult(result == MessageBoxResult.OK);
     }
 
@@ -27,7 +27,7 @@ public sealed class WpfDialogService : IUserInteractionService
             $"引数: {action.DescribeArguments()}{Environment.NewLine}{Environment.NewLine}" +
             "はい = 実行 / いいえ = スキップ / キャンセル = 中止";
 
-        var result = MessageBox.Show(message, "アクション確認", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+        var result = System.Windows.MessageBox.Show(message, "アクション確認", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
         return Task.FromResult(result switch
         {
             MessageBoxResult.Yes => ActionPromptDecision.Run,
@@ -43,7 +43,7 @@ public sealed class WpfDialogService : IUserInteractionService
             $"状態: {executionResult.Status}{Environment.NewLine}" +
             $"理由: {executionResult.FailureReason ?? "(詳細なし)"}{Environment.NewLine}{Environment.NewLine}" +
             "はい = 再試行 / いいえ = 残りを続行 / キャンセル = 中止";
-        var result = MessageBox.Show(message, "アクション失敗", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
+        var result = System.Windows.MessageBox.Show(message, "アクション失敗", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
         return Task.FromResult(result switch
         {
             MessageBoxResult.Yes => FailureResolution.Retry,
@@ -54,7 +54,7 @@ public sealed class WpfDialogService : IUserInteractionService
 
     public Task ShowErrorAsync(string message, CancellationToken cancellationToken = default)
     {
-        MessageBox.Show(message, "Workspice", MessageBoxButton.OK, MessageBoxImage.Error);
+        System.Windows.MessageBox.Show(message, "Workspice", MessageBoxButton.OK, MessageBoxImage.Error);
         return Task.CompletedTask;
     }
 }

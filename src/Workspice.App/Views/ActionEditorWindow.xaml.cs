@@ -182,13 +182,13 @@ public partial class ActionEditorWindow : Window
     {
         if (string.IsNullOrWhiteSpace(ActionNameTextBox.Text))
         {
-            MessageBox.Show("アクション名は必須です。");
+            System.Windows.MessageBox.Show("アクション名は必須です。");
             return;
         }
 
         if (!int.TryParse(TimeoutTextBox.Text, out var timeoutSec) || timeoutSec <= 0)
         {
-            MessageBox.Show("タイムアウトは 1 以上の整数で指定してください。");
+            System.Windows.MessageBox.Show("タイムアウトは 1 以上の整数で指定してください。");
             return;
         }
 
@@ -252,13 +252,13 @@ public partial class ActionEditorWindow : Window
 
         if (!int.TryParse(PostCheckTimeoutTextBox.Text, out var timeoutSec) || timeoutSec <= 0)
         {
-            MessageBox.Show("事後確認タイムアウトは 1 以上で指定してください。");
+            System.Windows.MessageBox.Show("事後確認タイムアウトは 1 以上で指定してください。");
             throw new InvalidOperationException("PostCheck timeout is invalid.");
         }
 
         if (!int.TryParse(PostCheckPollTextBox.Text, out var pollMs) || pollMs <= 0)
         {
-            MessageBox.Show("ポーリング間隔は 1 以上で指定してください。");
+            System.Windows.MessageBox.Show("ポーリング間隔は 1 以上で指定してください。");
             throw new InvalidOperationException("PostCheck poll interval is invalid.");
         }
 

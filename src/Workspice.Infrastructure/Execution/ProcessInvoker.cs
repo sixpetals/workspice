@@ -3,7 +3,7 @@ using Workspice.Domain.Models;
 
 namespace Workspice.Infrastructure.Execution;
 
-internal sealed class ProcessInvoker
+public sealed class ProcessInvoker
 {
     public async Task<ExternalCommandResult> RunAsync(
         ProcessStartInfo startInfo,

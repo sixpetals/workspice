@@ -21,7 +21,9 @@ public sealed class DefaultCheckEvaluator(ProcessInvoker processInvoker) : IChec
         };
 
         var commandResult = await processInvoker.RunAsync(startInfo, 15, waitForExit: true, cancellationToken);
-        var output = string.Join(Environment.NewLine, [commandResult.StandardOutput, commandResult.StandardError].Where(static value => !string.IsNullOrWhiteSpace(value)));
+        var outputParts = new[] { commandResult.StandardOutput, commandResult.StandardError }
+            .Where(static value => !string.IsNullOrWhiteSpace(value));
+        var output = string.Join(Environment.NewLine, outputParts);
         IReadOnlyCollection<int> exitCodes = check.SuccessExitCodes.Count == 0 ? new[] { 0 } : check.SuccessExitCodes;
         var exitMatches = commandResult.ExitCode.HasValue && exitCodes.Contains(commandResult.ExitCode.Value);
         var regexMatches = string.IsNullOrWhiteSpace(check.OutputRegex) || Regex.IsMatch(output, check.OutputRegex, RegexOptions.Multiline);
