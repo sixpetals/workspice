@@ -1,0 +1,41 @@
+<Window x:Class="Workspice.App.Views.CheckEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="チェック編集"
+        Width="640"
+        Height="360"
+        WindowStartupLocation="CenterOwner">
+  <Grid Margin="12">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="140" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="Command" VerticalAlignment="Center" />
+      <TextBox Grid.Row="0" Grid.Column="1" x:Name="CommandTextBox" />
+      <TextBlock Grid.Row="1" Grid.Column="0" Text="Arguments" VerticalAlignment="Center" Margin="0,8,0,0" />
+      <TextBox Grid.Row="1" Grid.Column="1" x:Name="ArgumentsTextBox" Margin="0,8,0,0" />
+      <TextBlock Grid.Row="2" Grid.Column="0" Text="SuccessExitCodes" VerticalAlignment="Center" Margin="0,8,0,0" />
+      <TextBox Grid.Row="2" Grid.Column="1" x:Name="ExitCodesTextBox" Margin="0,8,0,0" />
+      <TextBlock Grid.Row="3" Grid.Column="0" Text="OutputRegex" VerticalAlignment="Center" Margin="0,8,0,0" />
+      <StackPanel Grid.Row="3" Grid.Column="1" Margin="0,8,0,0">
+        <TextBox x:Name="OutputRegexTextBox" />
+        <CheckBox x:Name="NegateCheckBox" Content="判定を反転する" Margin="0,8,0,0" />
+      </StackPanel>
+    </Grid>
+    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+      <Button Content="OK" Width="96" Margin="0,0,8,0" Click="Ok_Click" />
+      <Button Content="キャンセル" Width="96" Click="Cancel_Click" />
+    </StackPanel>
+  </Grid>
+</Window>

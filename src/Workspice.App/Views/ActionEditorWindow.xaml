@@ -1,0 +1,125 @@
+<Window x:Class="Workspice.App.Views.ActionEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="アクション編集"
+        Width="760"
+        Height="780"
+        WindowStartupLocation="CenterOwner">
+  <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <StackPanel Margin="12">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="140" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="種別" VerticalAlignment="Center" />
+        <ComboBox Grid.Row="0" Grid.Column="1" x:Name="ActionTypeComboBox" SelectionChanged="ActionTypeComboBox_SelectionChanged" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="名前" VerticalAlignment="Center" Margin="0,8,0,0" />
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="ActionNameTextBox" Margin="0,8,0,0" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="タイムアウト(秒)" VerticalAlignment="Center" Margin="0,8,0,0" />
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="TimeoutTextBox" Margin="0,8,0,0" />
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="0,8,0,0">
+          <CheckBox x:Name="PromptBeforeRunCheckBox" Content="実行前に確認する" Margin="0,0,12,0" />
+          <CheckBox x:Name="EnabledCheckBox" Content="有効" IsChecked="True" />
+        </StackPanel>
+      </Grid>
+
+      <GroupBox Header="アクション詳細" Margin="0,16,0,0">
+        <Grid Margin="8">
+          <StackPanel x:Name="ApplicationLaunchPanel">
+            <TextBlock Text="実行ファイル" />
+            <TextBox x:Name="ExecutablePathTextBox" Margin="0,4,0,8" />
+            <TextBlock Text="引数" />
+            <TextBox x:Name="ApplicationArgumentsTextBox" Margin="0,4,0,8" />
+            <TextBlock Text="作業ディレクトリ" />
+            <TextBox x:Name="ApplicationWorkingDirectoryTextBox" Margin="0,4,0,8" />
+            <TextBlock Text="RunLevel" />
+            <ComboBox x:Name="ApplicationRunLevelComboBox" Margin="0,4,0,0" />
+          </StackPanel>
+
+          <StackPanel x:Name="CommandExecutionPanel" Visibility="Collapsed">
+            <TextBlock Text="ファイル名" />
+            <TextBox x:Name="CommandFileNameTextBox" Margin="0,4,0,8" />
+            <TextBlock Text="引数" />
+            <TextBox x:Name="CommandArgumentsTextBox" Margin="0,4,0,8" />
+            <TextBlock Text="作業ディレクトリ" />
+            <TextBox x:Name="CommandWorkingDirectoryTextBox" Margin="0,4,0,8" />
+            <TextBlock Text="RunLevel" />
+            <ComboBox x:Name="CommandRunLevelComboBox" Margin="0,4,0,0" />
+          </StackPanel>
+
+          <StackPanel x:Name="ServiceControlPanel" Visibility="Collapsed">
+            <TextBlock Text="サービス名" />
+            <TextBox x:Name="ServiceNameTextBox" Margin="0,4,0,8" />
+            <TextBlock Text="操作" />
+            <ComboBox x:Name="ServiceOperationComboBox" Margin="0,4,0,0" />
+          </StackPanel>
+        </Grid>
+      </GroupBox>
+
+      <GroupBox Header="事前条件チェック" Margin="0,16,0,0">
+        <DockPanel Margin="8">
+          <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="0,12,0,0">
+            <Button Content="追加" Width="72" Margin="0,0,8,0" Click="AddPrecondition_Click" />
+            <Button Content="編集" Width="72" Margin="0,0,8,0" Click="EditPrecondition_Click" />
+            <Button Content="削除" Width="72" Click="RemovePrecondition_Click" />
+          </StackPanel>
+          <ListBox x:Name="PreconditionsListBox" DisplayMemberPath="Command" />
+        </DockPanel>
+      </GroupBox>
+
+      <GroupBox Header="事後確認" Margin="0,16,0,0">
+        <StackPanel Margin="8">
+          <CheckBox x:Name="EnablePostCheckCheckBox" Content="事後確認を有効化" Checked="EnablePostCheckChanged" Unchecked="EnablePostCheckChanged" />
+          <Grid Margin="0,8,0,0">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="140" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="モード" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="0" Grid.Column="1" x:Name="PostCheckModeComboBox" SelectionChanged="PostCheckModeComboBox_SelectionChanged" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="タイムアウト(秒)" VerticalAlignment="Center" Margin="0,8,0,0" />
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="PostCheckTimeoutTextBox" Margin="0,8,0,0" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="ポーリング間隔(ms)" VerticalAlignment="Center" Margin="0,8,0,0" />
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="PostCheckPollTextBox" Margin="0,8,0,0" />
+          </Grid>
+
+          <StackPanel x:Name="ProcessExistsPanel" Margin="0,8,0,0">
+            <TextBlock Text="プロセス名" />
+            <TextBox x:Name="PostCheckProcessNameTextBox" Margin="0,4,0,0" />
+          </StackPanel>
+
+          <StackPanel x:Name="CommandCheckPanel" Margin="0,8,0,0" Visibility="Collapsed">
+            <Button Content="CommandCheck を編集" Width="160" HorizontalAlignment="Left" Click="EditPostCheckCommand_Click" />
+            <TextBlock x:Name="PostCheckCommandSummaryTextBlock" Margin="0,8,0,0" TextWrapping="Wrap" />
+          </StackPanel>
+
+          <StackPanel x:Name="ServiceStatePanel" Margin="0,8,0,0" Visibility="Collapsed">
+            <TextBlock Text="サービス名" />
+            <TextBox x:Name="PostCheckServiceNameTextBox" Margin="0,4,0,8" />
+            <TextBlock Text="期待状態" />
+            <ComboBox x:Name="PostCheckServiceStateComboBox" Margin="0,4,0,0" />
+          </StackPanel>
+        </StackPanel>
+      </GroupBox>
+
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+        <Button Content="OK" Width="96" Margin="0,0,8,0" Click="Ok_Click" />
+        <Button Content="キャンセル" Width="96" Click="Cancel_Click" />
+      </StackPanel>
+    </StackPanel>
+  </ScrollViewer>
+</Window>
