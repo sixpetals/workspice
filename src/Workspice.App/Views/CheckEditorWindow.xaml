@@ -2,40 +2,103 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="チェック編集"
-        Width="640"
-        Height="360"
+        Width="720"
+        Height="520"
+        MinWidth="660"
+        MinHeight="460"
         WindowStartupLocation="CenterOwner">
-  <Grid Margin="12">
+  <Grid Margin="24">
     <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
       <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
-    <Grid>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="Auto" />
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="140" />
-        <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
-      <TextBlock Grid.Row="0" Grid.Column="0" Text="Command" VerticalAlignment="Center" />
-      <TextBox Grid.Row="0" Grid.Column="1" x:Name="CommandTextBox" />
-      <TextBlock Grid.Row="1" Grid.Column="0" Text="Arguments" VerticalAlignment="Center" Margin="0,8,0,0" />
-      <TextBox Grid.Row="1" Grid.Column="1" x:Name="ArgumentsTextBox" Margin="0,8,0,0" />
-      <TextBlock Grid.Row="2" Grid.Column="0" Text="SuccessExitCodes" VerticalAlignment="Center" Margin="0,8,0,0" />
-      <TextBox Grid.Row="2" Grid.Column="1" x:Name="ExitCodesTextBox" Margin="0,8,0,0" />
-      <TextBlock Grid.Row="3" Grid.Column="0" Text="OutputRegex" VerticalAlignment="Center" Margin="0,8,0,0" />
-      <StackPanel Grid.Row="3" Grid.Column="1" Margin="0,8,0,0">
-        <TextBox x:Name="OutputRegexTextBox" />
-        <CheckBox x:Name="NegateCheckBox" Content="判定を反転する" Margin="0,8,0,0" />
+
+    <Border Grid.Row="0"
+            Style="{StaticResource HeroCardStyle}"
+            Margin="0,0,0,18">
+      <StackPanel>
+        <TextBlock Text="Check Builder"
+                   Style="{StaticResource WindowTitleTextStyle}" />
+        <TextBlock Text="コマンドの終了コードや出力を使って、アクションの実行可否を判定する条件を定義します。"
+                   Style="{StaticResource HeroSubtitleTextStyle}"
+                   Margin="0,10,0,0" />
       </StackPanel>
-    </Grid>
-    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
-      <Button Content="OK" Width="96" Margin="0,0,8,0" Click="Ok_Click" />
-      <Button Content="キャンセル" Width="96" Click="Cancel_Click" />
-    </StackPanel>
+    </Border>
+
+    <Border Grid.Row="1"
+            Style="{StaticResource CardBorderStyle}">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="160" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Text="Command"
+                   Style="{StaticResource FieldLabelTextStyle}" />
+        <TextBox Grid.Row="0"
+                 Grid.Column="1"
+                 x:Name="CommandTextBox" />
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   Text="Arguments"
+                   Style="{StaticResource FieldLabelTextStyle}"
+                   Margin="0,14,0,0" />
+        <TextBox Grid.Row="1"
+                 Grid.Column="1"
+                 x:Name="ArgumentsTextBox"
+                 Margin="0,14,0,0" />
+
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Text="SuccessExitCodes"
+                   Style="{StaticResource FieldLabelTextStyle}"
+                   Margin="0,14,0,0" />
+        <TextBox Grid.Row="2"
+                 Grid.Column="1"
+                 x:Name="ExitCodesTextBox"
+                 Margin="0,14,0,0" />
+
+        <TextBlock Grid.Row="3"
+                   Grid.Column="0"
+                   Text="OutputRegex"
+                   Style="{StaticResource FieldLabelTextStyle}"
+                   Margin="0,14,0,0" />
+        <StackPanel Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="0,14,0,0">
+          <TextBox x:Name="OutputRegexTextBox" />
+          <CheckBox x:Name="NegateCheckBox"
+                    Content="判定を反転する"
+                    Margin="0,12,0,0" />
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <Border Grid.Row="2"
+            Style="{StaticResource CardBorderStyle}"
+            Margin="0,18,0,0"
+            Padding="18">
+      <StackPanel Orientation="Horizontal"
+                  HorizontalAlignment="Right">
+        <Button Content="OK"
+                Width="110"
+                Margin="0,0,10,0"
+                Tag="Primary"
+                Click="Ok_Click" />
+        <Button Content="キャンセル"
+                Width="110"
+                Click="Cancel_Click" />
+      </StackPanel>
+    </Border>
   </Grid>
 </Window>
