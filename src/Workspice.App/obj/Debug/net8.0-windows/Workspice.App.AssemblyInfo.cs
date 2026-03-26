@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Workspice.App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+097276f83f5b7ca9db7124a01ce6564cffa672f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82bcc42864948e2ca28b9af88a9fac206c2ad79d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Workspice.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Workspice.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
